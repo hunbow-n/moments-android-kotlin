@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/layouts_icon"
+        android:icon="@drawable/layouts"
+        android:title="Шаблоны"
+        android:orderInCategory="1"
+        />
+    <item android:id="@+id/drafts_icon"
+        android:icon="@drawable/drafts"
+        android:title="Черновики"
+        android:orderInCategory="2"
+        />
+    <item android:id="@+id/promotions_icon"
+        android:icon="@drawable/promotions"
+        android:title="Акции"
+        android:orderInCategory="3"
+        />
+    <item android:id="@+id/cart_icon"
+        android:icon="@drawable/cart"
+        android:title="Корзина"
+        android:orderInCategory="4"
+        />
+    <item android:id="@+id/profile_icon"
+        android:icon="@drawable/profile"
+        android:title="Профиль"
+        android:orderInCategory="5"
+        />
+</menu>

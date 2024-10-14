@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Momentbooks" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<!--        <item name="android:windowFullscreen">true</item>-->
+        <item name="itemRippleColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.Momentbooks" parent="Base.Theme.Momentbooks" />
+</resources>
