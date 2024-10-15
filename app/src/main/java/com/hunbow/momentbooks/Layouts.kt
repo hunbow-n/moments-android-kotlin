@@ -1,15 +1,27 @@
 package com.hunbow.momentbooks
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.hunbow.momentbooks.databinding.FragmentLayoutsBinding
+import org.json.JSONArray
+import java.io.IOException
+import java.io.InputStreamReader
+import java.net.URL
+import java.nio.charset.Charset
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private lateinit var binding: FragmentLayoutsBinding
+private lateinit var booksAdapter: LayoutsViewsAdapter
 
 /**
  * A simple [Fragment] subclass.
@@ -33,8 +45,20 @@ class Layouts : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_layouts, container, false)
+        val binding = FragmentLayoutsBinding.inflate(inflater, container, false)
+
+        // Чтение замоканных данных из JSON файла в папке assets
+        val booksList = loadMockData()
+
+        // Установка адаптера
+        val booksAdapter = LayoutsViewsAdapter(booksList)
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = booksAdapter
+        }
+
+        return binding.root
+//        return inflater.inflate(R.layout.fragment_layouts, container, false)
     }
 
     companion object {
@@ -56,4 +80,12 @@ class Layouts : Fragment() {
                 }
             }
     }
+
+    private fun loadMockData(): List<LayoutsBook> {
+        val inputStream = requireContext().assets.open("books_mock.json")
+        val reader = InputStreamReader(inputStream)
+        val type = object : TypeToken<List<LayoutsBook>>() {}.type
+        return Gson().fromJson(reader, type)
+    }
+
 }
