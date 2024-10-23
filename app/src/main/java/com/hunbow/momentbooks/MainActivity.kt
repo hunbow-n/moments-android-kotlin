@@ -1,13 +1,11 @@
 package com.hunbow.momentbooks
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.replace
 import com.hunbow.momentbooks.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,11 +22,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        replaceFragment(Layouts())
+        replaceFragment(LayoutsFragment())
 
         binding.bottNav.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.layouts_icon -> replaceFragment(Layouts())
+                R.id.layouts_icon -> replaceFragment(LayoutsFragment())
                 R.id.drafts_icon -> replaceFragment(Drafts())
                 R.id.promotions_icon -> replaceFragment(Promotions())
                 R.id.cart_icon -> replaceFragment(Cart())

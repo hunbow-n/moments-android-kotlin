@@ -1,20 +1,16 @@
 package com.hunbow.momentbooks
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.hunbow.momentbooks.databinding.FragmentLayoutsBinding
-import org.json.JSONArray
-import java.io.IOException
 import java.io.InputStreamReader
 import java.net.URL
-import java.nio.charset.Charset
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,10 +21,10 @@ private lateinit var booksAdapter: LayoutsViewsAdapter
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Layouts.newInstance] factory method to
+ * Use the [LayoutsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Layouts : Fragment() {
+class LayoutsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -42,20 +38,11 @@ class Layouts : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentLayoutsBinding.inflate(inflater, container, false)
+        binding = FragmentLayoutsBinding.inflate(inflater, container, false)
 
-        // Чтение замоканных данных из JSON файла в папке assets
-        val booksList = loadMockData()
-
-        // Установка адаптера
-        val booksAdapter = LayoutsViewsAdapter(booksList)
-        binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = booksAdapter
-        }
+        init()
 
         return binding.root
 //        return inflater.inflate(R.layout.fragment_layouts, container, false)
@@ -72,13 +59,26 @@ class Layouts : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Layouts().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        fun newInstance(param1: String, param2: String) = LayoutsFragment().apply {
+            arguments = Bundle().apply {
+                putString(ARG_PARAM1, param1)
+                putString(ARG_PARAM2, param2)
             }
+        }
+    }
+
+    private fun init() {
+        // Чтение замоканных данных из JSON файла в папке assets
+        val booksList = loadMockData()
+        val categories = getCategoties();
+//        val createBookItem = LayoutsBook(URL("https://momentsbook.ru/assets/glossy.jpg"), "");
+//        val newBookList = listOf(createBookItem) + booksList
+        // Установка адаптера
+        val booksAdapter = LayoutsViewsAdapter(booksList)
+        binding.recyclerView.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            adapter = booksAdapter
+        }
     }
 
     private fun loadMockData(): List<LayoutsBook> {
@@ -86,6 +86,12 @@ class Layouts : Fragment() {
         val reader = InputStreamReader(inputStream)
         val type = object : TypeToken<List<LayoutsBook>>() {}.type
         return Gson().fromJson(reader, type)
+    }
+
+    private fun getCategoties(): List<String> {
+        return listOf(
+            "Все", "Свадебные", "Романтические", "Путешествия", "Детские", "Простые", "Семейные"
+        )
     }
 
 }

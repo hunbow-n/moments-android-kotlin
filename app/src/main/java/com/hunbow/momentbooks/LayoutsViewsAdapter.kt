@@ -9,6 +9,7 @@ import com.hunbow.momentbooks.databinding.BookItemBinding
 
 class LayoutsViewsAdapter(private val books: List<LayoutsBook>): RecyclerView.Adapter<LayoutsViewsAdapter.LayoutsBookHolder>() {
 
+    // Сам адаптер это посредник между RecyclerView и данными
     class LayoutsBookHolder(item: View): RecyclerView.ViewHolder(item) {
         val binding = BookItemBinding.bind(item)
         fun bind(book: LayoutsBook) = with(binding) {
@@ -21,6 +22,7 @@ class LayoutsViewsAdapter(private val books: List<LayoutsBook>): RecyclerView.Ad
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LayoutsBookHolder {
+        // надуваем наш холдер разметкой из парент контекста
         val view = LayoutInflater.from(parent.context).inflate(R.layout.book_item, parent, false)
         return LayoutsBookHolder(view)
     }

@@ -4,26 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Layouts">
+    tools:context=".LayoutsFragment">
 
     <TextView
         android:id="@+id/layoutsPageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="4dp"
         android:fontFamily="@font/inter_bold"
         android:text="Шаблоны"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/layoutsPageTitle"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="29dp">
+        tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -45,6 +50,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
