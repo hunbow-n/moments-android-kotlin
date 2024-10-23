@@ -1,16 +1,17 @@
 package com.hunbow.momentbooks
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.hunbow.momentbooks.databinding.FragmentLayoutsBinding
 import java.io.InputStreamReader
-import java.net.URL
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,18 +68,50 @@ class LayoutsFragment : Fragment() {
         }
     }
 
+
     private fun init() {
-        // Чтение замоканных данных из JSON файла в папке assets
+
         val booksList = loadMockData()
-        val categories = getCategoties();
-//        val createBookItem = LayoutsBook(URL("https://momentsbook.ru/assets/glossy.jpg"), "");
-//        val newBookList = listOf(createBookItem) + booksList
-        // Установка адаптера
-        val booksAdapter = LayoutsViewsAdapter(booksList)
+        val categories = getCategories()
+
+        var filteredBooks = booksList.toMutableList()
+
+        booksAdapter = LayoutsViewsAdapter(filteredBooks)
         binding.recyclerView.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = booksAdapter
         }
+
+        categories.forEach { category ->
+            val tab = binding.layoutsTabs.newTab()
+            tab.text = category.name
+            tab.tag = category.id
+            binding.layoutsTabs.addTab(tab)
+        }
+
+        binding.layoutsTabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                tab?.let {
+//                    Toast.makeText(requireContext(), tab.text, Toast.LENGTH_SHORT).show()
+                    val selectedCategoryId = tab.tag as Int
+                    filteredBooks.clear()
+
+                    if (selectedCategoryId == 1) {
+                        filteredBooks.addAll(booksList)
+                    } else {
+                        filteredBooks.addAll(booksList.filter { book -> book.categoryId == selectedCategoryId })
+                    }
+
+                    booksAdapter.notifyDataSetChanged()
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
+
     }
 
     private fun loadMockData(): List<LayoutsBook> {
@@ -88,9 +121,16 @@ class LayoutsFragment : Fragment() {
         return Gson().fromJson(reader, type)
     }
 
-    private fun getCategoties(): List<String> {
+    private fun getCategories(): List<Category> {
+
         return listOf(
-            "Все", "Свадебные", "Романтические", "Путешествия", "Детские", "Простые", "Семейные"
+            Category(1, "Все"),
+            Category(2, "Свадебные"),
+            Category(3, "Романтические"),
+            Category(4, "Путешествия"),
+            Category(5, "Детские"),
+            Category(6, "Простые"),
+            Category(7, "Семейные"),
         )
     }
 

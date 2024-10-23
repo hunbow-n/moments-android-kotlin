@@ -10,51 +10,41 @@
         android:id="@+id/layoutsPageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="4dp"
         android:fontFamily="@font/inter_bold"
         android:text="Шаблоны"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tabLayout3"
+        app:layout_constraintBottom_toTopOf="@+id/layoutsTabs"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout3"
+        android:id="@+id/layoutsTabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        app:tabMode="scrollable"
+        app:tabIndicatorColor="@drawable/bottom_nav_selector"
+        app:tabSelectedTextColor="@drawable/bottom_nav_selector"
         app:layout_constraintTop_toBottomOf="@+id/layoutsPageTitle"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Monday" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tuesday" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wednesday" />
-    </com.google.android.material.tabs.TabLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        app:tabRippleColor="@null"
+        android:background="@android:color/transparent"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutsTabs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

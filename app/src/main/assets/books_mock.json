@@ -1,42 +1,107 @@
 [
   {
     "imageUrl": "https://api.momentsbook.ru/previews/173/stage30x307_right.jpg?cache_bust=1708357766406",
-    "title": "Свадебная"
+    "title": "Свадебная",
+    "categoryId": 1
   },
   {
     "imageUrl": "https://api.momentsbook.ru/previews/161/stage30x304_left.jpg?cache_bust=1707492609305",
-    "title": "Год на перемотке"
+    "title": "Год на перемотке",
+    "categoryId": 2
   },
   {
     "imageUrl": "https://api.momentsbook.ru/previews/207/stage30x301_right.jpg?cache_bust=1709032138064",
-    "title": "Любовь в воздухе"
+    "title": "Любовь в воздухе",
+    "categoryId": 3
   },
   {
     "imageUrl": "https://api.momentsbook.ru/previews/211/stage30x3011_right.jpg?cache_bust=1709041939544",
-    "title": "Парк"
+    "title": "Парк",
+    "categoryId": 4
   },
   {
     "imageUrl": "https://api.momentsbook.ru/previews/224/stage30x301_right.jpg?cache_bust=1709667719776",
-    "title": "Приключение"
+    "title": "Приключение",
+    "categoryId": 5
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/200/stage30x300_right.jpg?cache_bust=1708957734729",
+    "title": "Love",
+    "categoryId": 6
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/161/stage30x304_left.jpg?cache_bust=1707492609305",
+    "title": "Год на перемотке",
+    "categoryId": 7
   },
   {
     "imageUrl": "https://api.momentsbook.ru/previews/173/stage30x307_right.jpg?cache_bust=1708357766406",
-    "title": "Свадебная"
+    "title": "Свадебная",
+    "categoryId": 1
   },
   {
     "imageUrl": "https://api.momentsbook.ru/previews/161/stage30x304_left.jpg?cache_bust=1707492609305",
-    "title": "Год на перемотке"
+    "title": "Год на перемотке",
+    "categoryId": 2
   },
   {
     "imageUrl": "https://api.momentsbook.ru/previews/207/stage30x301_right.jpg?cache_bust=1709032138064",
-    "title": "Любовь в воздухе"
+    "title": "Любовь в воздухе",
+    "categoryId": 3
   },
   {
     "imageUrl": "https://api.momentsbook.ru/previews/211/stage30x3011_right.jpg?cache_bust=1709041939544",
-    "title": "Парк"
+    "title": "Парк",
+    "categoryId": 4
   },
   {
     "imageUrl": "https://api.momentsbook.ru/previews/224/stage30x301_right.jpg?cache_bust=1709667719776",
-    "title": "Приключение"
+    "title": "Приключение",
+    "categoryId": 5
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/200/stage30x300_right.jpg?cache_bust=1708957734729",
+    "title": "Love",
+    "categoryId": 6
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/161/stage30x304_left.jpg?cache_bust=1707492609305",
+    "title": "Год на перемотке",
+    "categoryId": 7
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/173/stage30x307_right.jpg?cache_bust=1708357766406",
+    "title": "Свадебная",
+    "categoryId": 1
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/161/stage30x304_left.jpg?cache_bust=1707492609305",
+    "title": "Год на перемотке",
+    "categoryId": 2
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/207/stage30x301_right.jpg?cache_bust=1709032138064",
+    "title": "Любовь в воздухе",
+    "categoryId": 3
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/211/stage30x3011_right.jpg?cache_bust=1709041939544",
+    "title": "Парк",
+    "categoryId": 4
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/224/stage30x301_right.jpg?cache_bust=1709667719776",
+    "title": "Приключение",
+    "categoryId": 5
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/200/stage30x300_right.jpg?cache_bust=1708957734729",
+    "title": "Love",
+    "categoryId": 6
+  },
+  {
+    "imageUrl": "https://api.momentsbook.ru/previews/161/stage30x304_left.jpg?cache_bust=1707492609305",
+    "title": "Год на перемотке",
+    "categoryId": 7
   }
 ]
